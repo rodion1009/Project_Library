@@ -1,8 +1,8 @@
-#ifndef Librarian_hpp
-#define Librarian_hpp
+#ifndef Librarian_h
+#define Librarian_h
 
 #include <stdio.h>
-#include "Library.hpp"
+#include "library.h"
 
 class Librarian {
     Library *lib;

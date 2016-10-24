@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Library.hpp"
-#include "Librarian.hpp"
-#include "BaseReader.hpp"
+#include "library.h"
+#include "librarian.h"
+#include "base_reader.h"
 using namespace std;
 
 int main(void) {

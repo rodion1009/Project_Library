@@ -1,8 +1,8 @@
-#ifndef PremiumReader_hpp
-#define PremiumReader_hpp
+#ifndef premium_reader_h
+#define premium_reader_h
 
 #include <stdio.h>
-#include "Reader.hpp"
+#include "reader.h"
 
 class PremiumReader: public Reader {
     Book* takenBooks[10];

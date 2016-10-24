@@ -1,4 +1,4 @@
-#include "Reader.hpp"
+#include "reader.h"
 
 void Reader::askForBook(Librarian &libr, string title) {
     libr.getReaderRequest(title, id);

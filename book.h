@@ -1,5 +1,5 @@
-#ifndef Book_hpp
-#define Book_hpp
+#ifndef Book_h
+#define Book_h
 
 #include <stdio.h>
 #include <string>

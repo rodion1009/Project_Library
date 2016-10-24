@@ -1,8 +1,8 @@
-#ifndef BaseReader_hpp
-#define BaseReader_hpp
+#ifndef base_reader_h
+#define base_reader_h
 
 #include <stdio.h>
-#include "Reader.hpp"
+#include "reader.h"
 
 class BaseReader: public Reader {
     Book* takenBooks[3];

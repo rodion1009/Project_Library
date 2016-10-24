@@ -1,8 +1,8 @@
-#ifndef Library_hpp
-#define Library_hpp
+#ifndef Library_h
+#define Library_h
 
 #include <stdio.h>
-#include "Book.hpp"
+#include "book.h"
 
 class Library {
 public:
