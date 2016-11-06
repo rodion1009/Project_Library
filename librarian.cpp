@@ -28,10 +28,19 @@ void Librarian::startCommunicationWithReader() {
     //Если читатель найден в каталоге, библиотекарь, должен проверить, есть ли требуемая книга в библиотеке
     //Если читатель не найден, зарегистрировать читателя в библиотеке (внести в каталог)
     
-    v->printMenu(); //отображение меню
     
     if (!checkReaderInReadersCatalog(r->getID())) {
         //lib->addReaderToTheCatalog("0", "0", id); (Вызывать только после того, как процедура будет реализована)
     };
-    
+    switch (v->menu()) {
+        case 1:
+            //lib->checkBook(v->whatBook());
+            break;
+        case 2:
+            //
+            break;
+        default:
+            v->noSuchVariant();
+            break;
+    }
 }

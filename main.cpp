@@ -5,6 +5,7 @@
 
 int main(void) {
     Library lib;
+    View v;
 
     //Ввод информации о читателе
     string name, surname;
@@ -29,7 +30,7 @@ int main(void) {
     lib.books[3] = new Book("Толстой", "Война и мир");
     lib.books[4] = new Book("Гоголь", "Мёртвые души");
     
-    Librarian libr(lib, br); //Библиотекарь libr работает в библиотеке lib
+    Librarian libr(lib, br, v); //Библиотекарь libr работает в библиотеке lib
     
     return 0;
 }

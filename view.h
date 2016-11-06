@@ -5,7 +5,9 @@ using namespace std;
 
 class View {
 public:
-    void printMenu();
+    int menu();
+    void noSuchVariant();
+    string whatBook();
 };
 
 #endif /* View_h */
