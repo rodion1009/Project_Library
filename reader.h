@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <string>
-#include "librarian.h"
+#include "book.h"
 using namespace std;
 
 class Reader {
@@ -35,8 +35,8 @@ public:
         name = n;
         id = i;
     }
-    void askForBook(Librarian &libr, string title); //Взять книгу в библиотеке
-    void returnBook(Librarian &libr); //Вернуть книгу в библиотеку
+    void askForBook(string title); //Взять книгу в библиотеке
+    void returnBook(); //Вернуть книгу в библиотеку
 };
 
 #endif /* Reader_hpp */

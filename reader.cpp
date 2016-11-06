@@ -1,10 +1,10 @@
 #include "reader.h"
 
-void Reader::askForBook(Librarian &libr, string title) {
-    libr.getReaderRequest(title, this->id);
+void Reader::askForBook(string title) {
+    
     //TODO: Добавить взятую книгу (если она была получена) в массив книг у читателя
 }
 
-void Reader::returnBook(Librarian &libr) {
+void Reader::returnBook() {
     //TODO: Удалить книгу из массива книг у читателя
 }

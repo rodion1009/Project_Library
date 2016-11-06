@@ -1,11 +1,26 @@
-#include <iostream>
 #include "library.h"
 #include "librarian.h"
 #include "base_reader.h"
-using namespace std;
+#include "view.h"
 
 int main(void) {
     Library lib;
+
+    //Ввод информации о читателе
+    string name, surname;
+    int id;
+    cout << "Библиотека v. 1.0\n";
+    cout << "Вы - читатель\n\n";
+    cout << "Введите вашу фамилию: ";
+    cin >> surname;
+    cout << "Введите ваше имя: ";
+    cin >> name;
+    cout << "Введите ваш номер читателя: ";
+    cin >> id;
+    
+    BaseReader br(name, surname, id);
+    
+    
     
     //добавление книг в библиотеку для тестирования
     lib.books[0] = new Book("Пушкин", "Дубровский");
@@ -14,9 +29,7 @@ int main(void) {
     lib.books[3] = new Book("Толстой", "Война и мир");
     lib.books[4] = new Book("Гоголь", "Мёртвые души");
     
-    Librarian libr(lib); //Библиотекарь libr работает в библиотеке lib
+    Librarian libr(lib, br); //Библиотекарь libr работает в библиотеке lib
     
-    BaseReader br("Иван", "Иванов", 25481);
-    br.askForBook(libr, "Мастер и Маргарита");
     return 0;
 }

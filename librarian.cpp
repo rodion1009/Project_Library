@@ -23,12 +23,14 @@ void Librarian::putBooksOnTheShelf() {
 }
 
 
-void Librarian::getReaderRequest(string t, int id) {
-    //Библиотекарь должен получать запрос на получение книги от читателя, проверять его наличие в каталоге читателей
+void Librarian::startCommunicationWithReader() {
+    //Библиотекарь должен проверять наличие читателя в каталоге читателей
     //Если читатель найден в каталоге, библиотекарь, должен проверить, есть ли требуемая книга в библиотеке
     //Если читатель не найден, зарегистрировать читателя в библиотеке (внести в каталог)
     
-    if (!checkReaderInReadersCatalog(id)) {
+    v->printMenu(); //отображение меню
+    
+    if (!checkReaderInReadersCatalog(r->getID())) {
         //lib->addReaderToTheCatalog("0", "0", id); (Вызывать только после того, как процедура будет реализована)
     };
     
