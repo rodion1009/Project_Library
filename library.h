@@ -7,10 +7,13 @@
 class Library {
 public:
     //TODO: добавить каталог читателей, представленный хэш-таблицей
-    Book *books[];
+    Book *books[5];
     bool checkBook(string); //Функция проверяет, есть ли данная книга в библиотеке
     void sortBooksByAuthor(); //Сортировка массива книг
     void addReaderToTheCatalog(string sn, string n, int id); //Добавить читателя в каталог
+    int amountOfBooks(void); //Количество книг в библиотеке
+    Library();
+    
 };
 
 #endif /* Library_hpp */

@@ -13,14 +13,14 @@ class Librarian {
     View *v;
     Stack_of_books returnedBooks;
 public:
-    Librarian(Library l, Reader re, View vi) {
+    Librarian(Library &l, Reader &re, View &vi) {
         lib = &l;
         r = &re;
         v = &vi;
     }
     void startCommunicationWithReader();
     bool checkReaderInReadersCatalog(int id);
-    Book* takeBookToTheReader(string title);
+    Book* takeBookToTheReader(string &);
     void getBookFromTheReader(Book* book);
     void getBookFromTheShelf();
     void putBooksOnTheShelf();

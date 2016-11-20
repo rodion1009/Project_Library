@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string>
 #include "book.h"
+#include <iostream>
 using namespace std;
 
 class Reader {
@@ -35,8 +36,8 @@ public:
         name = n;
         id = i;
     }
-    void askForBook(string title); //Взять книгу в библиотеке
-    void returnBook(); //Вернуть книгу в библиотеку
+    void takeBook(Book*); //Взять книгу от библиотекаря и положить её в очередь (указазатели на книгу)
+    Book* returnBook(void); //Взять указатель на книгу из очереди книг (будет реализована в дальнейшем) и вернуть его библиотекарю
 };
 
 #endif /* Reader_hpp */

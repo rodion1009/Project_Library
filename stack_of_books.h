@@ -3,28 +3,29 @@
 
 #include "book.h"
 
-class Elem {
+class Item {
 public:
-    Book* b;
-    Elem* next;
-    Elem() {
-        next = NULL;
-    }
-    Elem(Book* b) {
-        this->b = b;
-        next = NULL;
-    }
+    Book* data;
+    Item* next = NULL;
+    Item(Book*);
 };
 
-//Стек будет реализован свзяным списком
 class Stack_of_books {
+    int amount = 0;
+    Item* start = NULL;
 public:
-    Elem* start;
-    bool isEmpty();
-    void push(Book* b);  //Добавить в стек
-    Book* pop();         //Взять из стека
-    Stack_of_books() {
-        start = new Elem(); //Добавить первый головной элемент в список
+    void push(Book*);
+    Book* pop(void);
+};
+
+class StackException {
+    string details;
+public:
+    StackException(string d) {
+        details = d;
+    }
+    string getDescription(void) {
+        return details;
     }
 };
 
