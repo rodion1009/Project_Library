@@ -11,7 +11,7 @@ Book* Librarian::takeBookToTheReader(string &ttl) {
     Book* b = NULL;
     bool found = false;
     int i = 0;
-    while ((!found) && (i < 5)) {
+    while ((!found) && (i < 100)) {
         if (lib->books[i]->getTitle().compare(ttl) == 0) {
             found = true;
             b = lib->books[i];
@@ -44,13 +44,18 @@ void Librarian::startCommunicationWithReader() {    //Основная логи�
     };
     switch (v->menu()) {
         case 1: {
-            string book; v->whatBook(book);
+            if (v->variantsOfBook()) {
+                v->printListOfBooks(lib);
+            }
+            string book;
+            v->whatBook(book);
             if (lib->checkBook(book)) {   //пока всегда будет возвращать истину
                r->takeBook(takeBookToTheReader(book)); //Если книга есть в библиотеке, взять её и передать читателю
             } else {
                 v->noSuchBook();
             }
             break;
+            
         }
         case 2:
             //getBookFromTheReader(r->returnBook());

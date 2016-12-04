@@ -6,25 +6,25 @@
 using namespace std;
 
 class Book {
-    string autor;
+    string author;
     string title;
     bool status;
 public:
-    void setAuthor(string a) {
-        autor = a;
-    }
     string getAutor() {
-        return autor;
-    }
-    void setTitle(string t) {
-        title = t;
+        return author;
     }
     string getTitle() {
         return title;
     }
+    void setStatus(bool s) {
+        status = s;
+    }
+    bool getStatus() {
+        return status;
+    }
     Book(string a, string t) {
-        setAuthor(a);
-        setTitle(t);
+        author = a;
+        title = t;
         status = 1;
     }
 };

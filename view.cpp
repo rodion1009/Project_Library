@@ -10,6 +10,19 @@ int View::menu() {
     return c;
 }
 
+void View::printListOfBooks(Library *l) {
+    for (int i = 0; i < l->amountOfBooks(); i++) {
+        printf("%s - \"%s\" \n", l->books[i]->getAutor().c_str(), l->books[i]->getTitle().c_str());
+    }
+}
+
+int View::variantsOfBook() {
+    int c;
+    cout << "Вывести список книг?\n" << "1. Да\n" << "0. Нет\n" << "Ваш выбор: ";
+    cin >> c;
+    return c;
+}
+
 void View::noSuchVariant() {
     cout << "Выбранного варианта не существует\n";
 }

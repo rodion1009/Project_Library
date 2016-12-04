@@ -6,7 +6,7 @@
 int main(void) {
     Library lib;
     View v;
-
+    
     //Ввод информации о читателе
     string name, surname;
     int id;
