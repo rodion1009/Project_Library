@@ -2,6 +2,7 @@
 #include "librarian.h"
 #include "base_reader.h"
 #include "view.h"
+#include "catalog.h"
 
 int main(void) {
     Library lib;

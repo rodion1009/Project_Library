@@ -1,22 +1,31 @@
 #ifndef catalog_h
 #define catalog_h
+
 #include <string>
+#include <iostream>
+#include <fstream>
+
 using namespace std;
 
-class El {
+class Node {
 public:
     string surname;
     string name;
-    int readerID;
-    El* next;
+    Node* next;
+    Node(string sr, string n) {
+        surname = sr;
+        name = n;
+        next = NULL;
+    }
 };
 
 class Catalog {
 public:
-    El* catalog[];
-    void add();
-    bool find(int reader_id);
-    int hashFunction(int n);
+    Node* catalog[256] = {NULL};
+    void add(string, string);
+    bool find(string);
+    int hashFunction(string);
+    Catalog();
 };
 
 
