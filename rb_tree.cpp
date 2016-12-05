@@ -49,7 +49,7 @@ void RB_tree::leftRotate(struct node *n) {
     struct node *pivot = n->right;
     if (n->parent == NULL)
         root = pivot;
-    pivot->parent = n->parent; /* при этом, возможно, pivot становится корнем дерева */
+    pivot->parent = n->parent;
     if (n->parent != NULL) {
         if (n->parent->left == n) {
             n->parent->left = pivot;
@@ -68,7 +68,7 @@ void RB_tree::rightRotate(struct node *n) {
     struct node *pivot = n->left;
     if (n->parent == NULL)
         root = pivot;
-    pivot->parent = n->parent; /* при этом, возможно, pivot становится корнем дерева */
+    pivot->parent = n->parent;
     if (n->parent != NULL) {
         if (n->parent->left == n)
             n->parent->left = pivot;
@@ -131,4 +131,17 @@ void RB_tree::fix5(struct node *n) {
     } else {
         leftRotate(g);
     }
+}
+
+Book* RB_tree::find(string t, struct node *current) {
+    while (current != NULL) {
+        if (t.compare(current->data->getTitle()) < 0) {
+            current = current->left;
+        } else if (t.compare(current->data->getTitle()) > 0) {
+            current = current->right;
+        } else if (t.compare(current->data->getTitle()) == 0) {
+            return current->data;
+        }
+    }
+    return NULL;
 }

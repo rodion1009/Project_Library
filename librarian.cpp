@@ -5,21 +5,21 @@ bool Librarian::checkReaderInReadersCatalog(int id) {
     return 0;
 }
 
-Book* Librarian::takeBookToTheReader(string &ttl) {
-    //Выдать книгу читателю (вернуть указатель не неё, чтобы читатель добавил его в свою очередь книг)
-    cout << ttl << " - искомая книга\n";
-    Book* b = NULL;
-    bool found = false;
-    int i = 0;
-    while ((!found) && (i < 100)) {
-        if (lib->books[i]->getTitle().compare(ttl) == 0) {
-            found = true;
-            b = lib->books[i];
-        }
-        i++;
-    }
-    return b;
-}
+//Book* Librarian::takeBookToTheReader(string &ttl) {
+//    //Выдать книгу читателю (вернуть указатель не неё, чтобы читатель добавил его в свою очередь книг)
+//    cout << ttl << " - искомая книга\n";
+//    Book* b = NULL;
+//    bool found = false;
+//    int i = 0;
+//    while ((!found) && (i < 100)) {
+//        if (lib->books[i]->getTitle().compare(ttl) == 0) {
+//            found = true;
+//            b = lib->books[i];
+//        }
+//        i++;
+//    }
+//    return b;
+//}
 
 void Librarian::getBookFromTheReader(Book* book) {
     //Получить книгу (указатель на неё) от читателя и добавить её в стек книг, которые читатели вернули
@@ -49,8 +49,10 @@ void Librarian::startCommunicationWithReader() {    //Основная логи�
             }
             string book;
             v->whatBook(book);
-            if (lib->checkBook(book)) {   //пока всегда будет возвращать истину
-               r->takeBook(takeBookToTheReader(book)); //Если книга есть в библиотеке, взять её и передать читателю
+            Book* bk = NULL;
+            bk = lib->findBook(book);
+            if (bk != NULL) {
+               r->takeBook(bk); //Если книга есть в библиотеке, взять её и передать читателю
             } else {
                 v->noSuchBook();
             }

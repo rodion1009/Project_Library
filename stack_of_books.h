@@ -2,6 +2,7 @@
 #define stack_of_books_h
 
 #include "book.h"
+#include "my_exception.h"
 
 class Item {
 public:
@@ -16,17 +17,6 @@ class Stack_of_books {
 public:
     void push(Book*);
     Book* pop(void);
-};
-
-class StackException {
-    string details;
-public:
-    StackException(string d) {
-        details = d;
-    }
-    string getDescription(void) {
-        return details;
-    }
 };
 
 #endif /* stack_of_books_h */

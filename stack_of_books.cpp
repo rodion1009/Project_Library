@@ -31,6 +31,6 @@ Book* Stack_of_books::pop() {
         amount--;
         return tmpd;
     } else {
-        throw StackException("Стэк пуст");
+        throw MyException("Стэк пуст");
     }
 }
