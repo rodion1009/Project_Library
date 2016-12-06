@@ -10,10 +10,9 @@ int main(void) {
     
     //Ввод информации о читателе
     string name, surname;
-    int id;
-    v.getReaderInfo(surname, name, id);
+    v.getReaderInfo(surname, name);
     
-    BaseReader br(name, surname, id);
+    BaseReader br(name, surname);
     
     Librarian libr(lib, br, v); //Библиотекарь libr работает в библиотеке lib
     

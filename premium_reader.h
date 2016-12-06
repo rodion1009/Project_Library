@@ -7,7 +7,7 @@
 class PremiumReader: public Reader {
     Book* takenBooks[10];
 public:
-    PremiumReader(string sn, string n, int i) : Reader(sn, n, i) {}
+    PremiumReader(string sn, string n) : Reader(sn, n) {}
 };
 
 #endif /* PremiumReader_hpp */

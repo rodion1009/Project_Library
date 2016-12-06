@@ -5,9 +5,10 @@ Catalog::Catalog() {
     readers.open("/Users/rodion/Documents/project_Library/Project_Library/readers.txt");
     
     if (readers) {
-        string surname = "", name = "";
         while (!readers.eof()) {
-            readers >> surname >> name;
+            string surname = "", name = "";
+            readers >> surname;
+            readers >> name;
             add(surname, name);
         }
     }
@@ -16,19 +17,22 @@ Catalog::Catalog() {
 }
 
 int Catalog::hashFunction(string s) {
-    int hash;
-    for (int i = 0; i < s.length(); i++) {
-        hash += (unsigned char)s[i];
+    int hash = 0;
+    for (int i = 0; s[i] != '\0'; i++) {
+        hash += s[i];
     }
-    return (hash % 256);
+    return -(hash % 256);
 }
 
 bool Catalog::find(string s) {
-    if (catalog[hashFunction(s)] != NULL) {
-        Node* current = catalog[hashFunction(s)];
+    int h = hashFunction(s);
+    if (catalog[h] != NULL) {
+        Node* current = catalog[h];
         bool found = false;
         while (!found && current != NULL) {
-            if (current->surname.compare(s) == 0) {
+            string sr = "";
+            sr = current->surname;
+            if (!sr.compare(s)) {
                 found = true;
             } else {
                 current = current->next;
@@ -41,10 +45,11 @@ bool Catalog::find(string s) {
 }
 
 void Catalog::add(string sr, string n) {
-    if (catalog[hashFunction(sr)] == NULL) {
-        catalog[hashFunction(sr)] = new Node(sr, n);
+    int h = hashFunction(sr);
+    if (catalog[h] == NULL) {
+        catalog[h] = new Node(sr, n);
     } else {
-        Node* current = catalog[hashFunction(sr)];
+        Node* current = catalog[h];
         while (current->next != NULL) {
             current = current->next;
         }

@@ -7,7 +7,7 @@
 class BaseReader: public Reader {
     Book* takenBooks[3];
 public:
-    BaseReader(string sn, string n, int i) : Reader(sn, n, i) {}
+    BaseReader(string sn, string n) : Reader(sn, n) {}
 };
 
 #endif /* BaseReader_hpp */

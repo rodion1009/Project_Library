@@ -11,7 +11,6 @@ class Reader {
 protected:
     string surname;
     string name;
-    int id;
 public:
     void setSurname(string sn) {
         surname = sn;
@@ -25,16 +24,9 @@ public:
     string getName() {
         return name;
     }
-    void setID(int n) {
-        id = n;
-    }
-    int getID() {
-        return id;
-    }
-    Reader(string sn, string n, int i) {
+    Reader(string sn, string n) {
         surname = sn;
         name = n;
-        id = i;
     }
     void takeBook(Book*); //Взять книгу от библиотекаря и положить её в очередь (указазатели на книгу)
     Book* returnBook(void); //Взять указатель на книгу из очереди книг (будет реализована в дальнейшем) и вернуть его библиотекарю

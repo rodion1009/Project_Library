@@ -8,6 +8,7 @@
 
 class Library {
 public:
+    static const int amount = 100;
     //TODO: добавить каталог читателей, представленный хэш-таблицей
     Book *books[100];
     RB_tree tree; //красно-чёрное дерево для поиска книг
@@ -15,6 +16,7 @@ public:
     void addReaderToTheCatalog(string sn, string n, int id); //Добавить читателя в каталог
     int amountOfBooks(void); //Количество книг в библиотеке
     Library();
+    //~Library();
 };
 
 #endif /* Library_hpp */

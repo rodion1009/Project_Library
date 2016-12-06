@@ -12,7 +12,7 @@ public:
     void noSuchVariant();
     void noSuchBook();
     void whatBook(string&);
-    void getReaderInfo(string&, string&, int&);
+    void getReaderInfo(string&, string&);
     void printListOfBooks(Library*);
     int variantsOfBook();
 };

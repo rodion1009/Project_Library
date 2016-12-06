@@ -145,3 +145,33 @@ Book* RB_tree::find(string t, struct node *current) {
     }
     return NULL;
 }
+
+bool RB_tree::isLeaf(struct node *n) {
+    if (!n->left && !n->right) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//RB_tree::~RB_tree() {
+//    struct node *current = root;
+//    while (current) {
+//        if (current->left) {
+//            if (isLeaf(current->left))
+//                current->left->~node();
+//            else
+//                current = current->left;
+//        }
+//        
+//        if (current->right) {
+//            if (isLeaf(current->right))
+//                current->right->~node();
+//            else
+//                current = current->right;
+//        }
+//        
+//        //current = current->parent;
+//    }
+//    root->~node();
+//}

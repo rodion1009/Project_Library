@@ -38,13 +38,11 @@ void View::whatBook(string &title) {
     getline(cin, title);
 }
 
-void View::getReaderInfo(string &s, string &n, int &i) {
+void View::getReaderInfo(string &s, string &n) {
     cout << "Библиотека v. 1.0\n";
     cout << "Вы - читатель\n\n";
     cout << "Введите вашу фамилию: ";
     cin >> s;
     cout << "Введите ваше имя: ";
     cin >> n;
-    cout << "Введите ваш номер читателя: ";
-    cin >> i;
 }

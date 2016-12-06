@@ -30,6 +30,8 @@ public:
     void fix4(struct node *n);
     void fix5(struct node *n);
     Book* find(string, struct node*);
+    bool isLeaf(struct node*);
+    //~RB_tree();
 };
 
 

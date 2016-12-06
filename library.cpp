@@ -49,3 +49,9 @@ Book* Library::findBook(string b) {
 int Library::amountOfBooks() {
     return sizeof(books)/sizeof(Book*);
 }
+
+//Library::~Library() {
+//    for (int i = 10; i < amount; i++) {
+//        books[i]->~Book();
+//    }
+//}
