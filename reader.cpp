@@ -6,10 +6,18 @@ void Reader::takeBook(Book *b) {
     } else {
         cout << "Книга не найдена\n";
     }
-    //TODO: Добавить взятую книгу (если она была получена) в массив книг у читателя
+    try {
+        books.push(b);
+    } catch (MyException e) {
+        cout << e.getDescription();
+    }
 }
 
 Book* Reader::returnBook(void) {
-    //TODO: Удалить книгу из массива книг у читателя
-    return NULL;
+    try {
+        return books.pop();
+    } catch (MyException e) {
+        cout << "Нет книг, которые можно вернуть";
+        return NULL;
+    }
 }

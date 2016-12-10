@@ -11,7 +11,7 @@ class Librarian {
     Library *lib;
     Reader *r;
     View *v;
-    Stack_of_books returnedBooks;
+    Stack<Book> returnedBooks;
 public:
     Librarian(Library &l, Reader &re, View &vi) {
         lib = &l;
@@ -19,9 +19,9 @@ public:
         v = &vi;
     }
     void startCommunicationWithReader();
-    bool checkReaderInReadersCatalog(int id);
-    Book* takeBookToTheReader(string &);
-    void getBookFromTheReader(Book* book);
+    bool checkReaderInReadersCatalog(int);
+    Book* takeBookToTheReader(string&);
+    void getBookFromTheReader();
     void getBookFromTheShelf();
     void putBooksOnTheShelf();
 };

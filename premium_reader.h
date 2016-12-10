@@ -5,7 +5,7 @@
 #include "reader.h"
 
 class PremiumReader: public Reader {
-    Book* takenBooks[10];
+    Queue<Book> books = Queue<Book>(10);
 public:
     PremiumReader(string sn, string n) : Reader(sn, n) {}
 };

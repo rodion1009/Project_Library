@@ -3,14 +3,16 @@
 
 #include <stdio.h>
 #include <string>
-#include "book.h"
 #include <iostream>
+#include "book.h"
+#include "queue.h"
 using namespace std;
 
 class Reader {
 protected:
     string surname;
     string name;
+    Queue<Book> books = Queue<Book>(0);
 public:
     void setSurname(string sn) {
         surname = sn;

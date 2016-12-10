@@ -21,8 +21,12 @@ bool Librarian::checkReaderInReadersCatalog(int id) {
 //    return b;
 //}
 
-void Librarian::getBookFromTheReader(Book* book) {
+void Librarian::getBookFromTheReader() {
     //Получить книгу (указатель на неё) от читателя и добавить её в стек книг, которые читатели вернули
+    Book *rb = r->returnBook();
+    if (rb) {
+        returnedBooks.push(rb);
+    }
 }
 
 void Librarian::getBookFromTheShelf() {

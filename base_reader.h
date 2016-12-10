@@ -5,7 +5,7 @@
 #include "reader.h"
 
 class BaseReader: public Reader {
-    Book* takenBooks[3];
+    Queue<Book> books = Queue<Book>(3);
 public:
     BaseReader(string sn, string n) : Reader(sn, n) {}
 };

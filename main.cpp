@@ -3,6 +3,7 @@
 #include "base_reader.h"
 #include "view.h"
 #include "catalog.h"
+#include "queue.h"
 
 int main(void) {
     Library lib;
