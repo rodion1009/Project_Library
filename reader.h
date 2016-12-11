@@ -12,7 +12,7 @@ class Reader {
 protected:
     string surname;
     string name;
-    Queue<Book> books = Queue<Book>(0);
+    Queue<Book> books {10};
 public:
     void setSurname(string sn) {
         surname = sn;

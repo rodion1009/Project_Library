@@ -5,8 +5,9 @@
 
 template <class T>
 class Queue: public List<T> {
-    int maxAmount;
+
 public:
+    int maxAmount;
     List<T> list;
     T* pop();
     Queue(int n) {

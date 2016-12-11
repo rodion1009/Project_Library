@@ -9,7 +9,7 @@ void Reader::takeBook(Book *b) {
     try {
         books.push(b);
     } catch (MyException e) {
-        cout << e.getDescription();
+        cout << "Невозможно взять большее количество книг";
     }
 }
 

@@ -1,9 +1,6 @@
 #include "library.h"
 #include "librarian.h"
-#include "base_reader.h"
 #include "view.h"
-#include "catalog.h"
-#include "queue.h"
 
 int main(void) {
     Library lib;
@@ -13,7 +10,7 @@ int main(void) {
     string name, surname;
     v.getReaderInfo(surname, name);
     
-    BaseReader br(name, surname);
+    Reader br(name, surname);
     
     Librarian libr(lib, br, v); //Библиотекарь libr работает в библиотеке lib
     
