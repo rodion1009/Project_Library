@@ -2,14 +2,14 @@
 
 void Reader::takeBook(Book *b) {
     if (b != NULL) {
-        cout << "Книга получена\n";
+        v->result(true);
     } else {
-        cout << "Книга не найдена\n";
+        v->result(false);
     }
     try {
         books.push(b);
     } catch (MyException e) {
-        cout << "Невозможно взять большее количество книг";
+        v->noMoreBooks();
     }
 }
 
@@ -17,7 +17,18 @@ Book* Reader::returnBook(void) {
     try {
         return books.pop();
     } catch (MyException e) {
-        cout << "Нет книг, которые можно вернуть";
+        v->noBooks();
         return NULL;
+    }
+}
+
+void Reader::printMyBooks() {
+    ListNode<Book> *current = books.start;
+    if (current == NULL) {
+        v->noBooks();
+    }
+    while (current != NULL) {
+        cout << current->data->getTitle() << endl;
+        current = current->next;
     }
 }

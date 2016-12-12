@@ -8,7 +8,6 @@ class Queue: public List<T> {
 
 public:
     int maxAmount;
-    List<T> list;
     T* pop();
     Queue(int n) {
         maxAmount = n;

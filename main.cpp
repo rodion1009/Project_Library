@@ -10,11 +10,13 @@ int main(void) {
     string name, surname;
     v.getReaderInfo(surname, name);
     
-    Reader br(name, surname);
+    Reader r(surname, name, v);
     
-    Librarian libr(lib, br, v); //Библиотекарь libr работает в библиотеке lib
+    Librarian libr(lib, r, v); //Библиотекарь libr работает в библиотеке lib
     
     libr.startCommunicationWithReader();
+    
+    libr.putBooksOnTheShelf();
     
     return 0;
 }

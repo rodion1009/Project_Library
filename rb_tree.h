@@ -3,11 +3,12 @@
 
 #include "book.h"
 
-struct node {
+class TreeNode {
+public:
     Book* data;
-    struct node *left, *right, *parent;
+    TreeNode *left, *right, *parent;
     char colour;
-    node(Book* d) {
+    TreeNode(Book* d) {
         data = d;
         left = NULL;
         right = NULL;
@@ -18,19 +19,19 @@ struct node {
 
 class RB_tree {
 public:
-    struct node *root = NULL;
-    struct node *grandparent(struct node *n);
-    struct node *uncle(struct node *n);
-    void add(Book* b, struct node *current);
-    void leftRotate(struct node *n);
-    void rightRotate(struct node *n);
-    void fix1(struct node *n);
-    void fix2(struct node *n);
-    void fix3(struct node *n);
-    void fix4(struct node *n);
-    void fix5(struct node *n);
-    Book* find(string, struct node*);
-    bool isLeaf(struct node*);
+    TreeNode *root = NULL;
+    TreeNode *grandparent(TreeNode *n);
+    TreeNode *uncle(TreeNode *n);
+    void add(Book* b, TreeNode *current);
+    void leftRotate(TreeNode *n);
+    void rightRotate(TreeNode *n);
+    void fix1(TreeNode *n);
+    void fix2(TreeNode *n);
+    void fix3(TreeNode *n);
+    void fix4(TreeNode *n);
+    void fix5(TreeNode *n);
+    Book* find(string, TreeNode*);
+    bool isLeaf(TreeNode*);
     //~RB_tree();
 };
 

@@ -20,10 +20,12 @@ public:
 };
 
 class Catalog {
+    const string path = "/Users/rodion/Documents/project_Library/Project_Library/readers.txt";
 public:
     Node* catalog[256] = {NULL};
     void add(string, string);
-    bool find(string);
+    void addToFile(string, string);
+    bool find(string, string);
     int hashFunction(string);
     Catalog();
 };

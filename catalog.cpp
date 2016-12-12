@@ -2,7 +2,7 @@
 
 Catalog::Catalog() {
     ifstream readers;
-    readers.open("/Users/rodion/Documents/project_Library/Project_Library/readers.txt");
+    readers.open(path);
     
     if (readers) {
         while (!readers.eof()) {
@@ -24,15 +24,16 @@ int Catalog::hashFunction(string s) {
     return -(hash % 256);
 }
 
-bool Catalog::find(string s) {
+bool Catalog::find(string s, string nm) {
     int h = hashFunction(s);
     if (catalog[h] != NULL) {
         Node* current = catalog[h];
         bool found = false;
         while (!found && current != NULL) {
-            string sr = "";
+            string sr = "", n = "";
             sr = current->surname;
-            if (!sr.compare(s)) {
+            n = current->name;
+            if (!sr.compare(s) && !n.compare(nm)) {
                 found = true;
             } else {
                 current = current->next;
@@ -55,4 +56,10 @@ void Catalog::add(string sr, string n) {
         }
         current->next = new Node(sr, n);
     }
+}
+
+void Catalog::addToFile(string sn, string n) {
+    ofstream readers;
+    readers.open(path, ios_base::app);
+    readers << endl << sn << " " << n;
 }

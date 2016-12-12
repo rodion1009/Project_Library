@@ -6,9 +6,12 @@
 #include <iostream>
 #include "book.h"
 #include "queue.h"
+#include "view.h"
 using namespace std;
 
 class Reader {
+private:
+    View *v;
 protected:
     string surname;
     string name;
@@ -26,12 +29,14 @@ public:
     string getName() {
         return name;
     }
-    Reader(string sn, string n) {
+    Reader(string sn, string n, View &view) {
         surname = sn;
         name = n;
+        v = &view;
     }
     void takeBook(Book*); //Взять книгу от библиотекаря и положить её в очередь (указазатели на книгу)
     Book* returnBook(void); //Взять указатель на книгу из очереди книг (будет реализована в дальнейшем) и вернуть его библиотекарю
+    void printMyBooks();
 };
 
 #endif /* Reader_hpp */

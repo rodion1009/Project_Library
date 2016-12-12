@@ -1,14 +1,14 @@
 #include "rb_tree.h"
 
-struct node *RB_tree::grandparent(struct node *n) {
+TreeNode *RB_tree::grandparent(TreeNode *n) {
     if ((n != NULL) && (n->parent != NULL))
         return n->parent->parent;
     else
         return NULL;
 }
 
-struct node *RB_tree::uncle(struct node *n) {
-    struct node *g = grandparent(n);
+TreeNode *RB_tree::uncle(TreeNode *n) {
+    TreeNode *g = grandparent(n);
     if (g == NULL)
         return NULL;
     if (n->parent == g->left)
@@ -17,9 +17,9 @@ struct node *RB_tree::uncle(struct node *n) {
         return g->left;
 }
 
-void RB_tree::add(Book* b, struct node *current) {
+void RB_tree::add(Book* b, TreeNode *current) {
     if (root == NULL) {
-        root = new struct node(b);
+        root = new TreeNode(b);
         fix1(root);
         return;
     } else {
@@ -28,7 +28,7 @@ void RB_tree::add(Book* b, struct node *current) {
                 current = current->left;
                 add(b, current);
             } else {
-                current->left = new struct node(b);
+                current->left = new TreeNode(b);
                 current->left->parent = current;
                 fix1(current->left);
             }
@@ -37,7 +37,7 @@ void RB_tree::add(Book* b, struct node *current) {
                 current = current->right;
                 add(b, current);
             } else {
-                current->right = new struct node(b);
+                current->right = new TreeNode(b);
                 current->right->parent = current;
                 fix1(current->right);
             }
@@ -45,8 +45,8 @@ void RB_tree::add(Book* b, struct node *current) {
     }
 }
 
-void RB_tree::leftRotate(struct node *n) {
-    struct node *pivot = n->right;
+void RB_tree::leftRotate(TreeNode *n) {
+    TreeNode *pivot = n->right;
     if (n->parent == NULL)
         root = pivot;
     pivot->parent = n->parent;
@@ -64,8 +64,8 @@ void RB_tree::leftRotate(struct node *n) {
     pivot->left = n;
 }
 
-void RB_tree::rightRotate(struct node *n) {
-    struct node *pivot = n->left;
+void RB_tree::rightRotate(TreeNode *n) {
+    TreeNode *pivot = n->left;
     if (n->parent == NULL)
         root = pivot;
     pivot->parent = n->parent;
@@ -82,7 +82,7 @@ void RB_tree::rightRotate(struct node *n) {
     pivot->right = n;
 }
 
-void RB_tree::fix1(struct node *n) {
+void RB_tree::fix1(TreeNode *n) {
     if (n->parent == NULL) {
         n->colour = 'b';
     } else {
@@ -90,15 +90,15 @@ void RB_tree::fix1(struct node *n) {
     }
 }
 
-void RB_tree::fix2(struct node *n) {
+void RB_tree::fix2(TreeNode *n) {
     if (n->parent->colour == 'b')
         return;
     else
         fix3(n);
 }
 
-void RB_tree::fix3(struct node *n) {
-    struct node *u = uncle(n), *g;
+void RB_tree::fix3(TreeNode *n) {
+    TreeNode *u = uncle(n), *g;
     if ((u != NULL) && (u->colour == 'r') && (n->parent->colour == 'r')) {
         n->parent->colour = 'b';
         u->colour = 'b';
@@ -110,8 +110,8 @@ void RB_tree::fix3(struct node *n) {
     }
 }
 
-void RB_tree::fix4(struct node *n) {
-    struct node *g = grandparent(n);
+void RB_tree::fix4(TreeNode *n) {
+    TreeNode *g = grandparent(n);
     if ((n == n->parent->right) && (n->parent == g->left)) {
         leftRotate(n->parent);
         n = n->left;
@@ -122,8 +122,8 @@ void RB_tree::fix4(struct node *n) {
     fix5(n);
 }
 
-void RB_tree::fix5(struct node *n) {
-    struct node *g = grandparent(n);
+void RB_tree::fix5(TreeNode *n) {
+    TreeNode *g = grandparent(n);
     n->parent->colour = 'b';
     g->colour = 'r';
     if ((n == n->parent->left) && (n->parent == g->left)) {
@@ -133,7 +133,7 @@ void RB_tree::fix5(struct node *n) {
     }
 }
 
-Book* RB_tree::find(string t, struct node *current) {
+Book* RB_tree::find(string t, TreeNode *current) {
     while (current != NULL) {
         if (t.compare(current->data->getTitle()) < 0) {
             current = current->left;
@@ -146,7 +146,7 @@ Book* RB_tree::find(string t, struct node *current) {
     return NULL;
 }
 
-bool RB_tree::isLeaf(struct node *n) {
+bool RB_tree::isLeaf(TreeNode *n) {
     if (!n->left && !n->right) {
         return true;
     } else {
@@ -155,23 +155,23 @@ bool RB_tree::isLeaf(struct node *n) {
 }
 
 //RB_tree::~RB_tree() {
-//    struct node *current = root;
+//    TreeNode *current = root;
 //    while (current) {
 //        if (current->left) {
 //            if (isLeaf(current->left))
-//                current->left->~node();
+//                current->left->~TreeNode();
 //            else
 //                current = current->left;
 //        }
 //        
 //        if (current->right) {
 //            if (isLeaf(current->right))
-//                current->right->~node();
+//                current->right->~TreeNode();
 //            else
 //                current = current->right;
 //        }
 //        
-//        //current = current->parent;
+//        current = current->parent;
 //    }
-//    root->~node();
+//    root->~TreeNode();
 //}

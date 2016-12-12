@@ -19,10 +19,8 @@ public:
         v = &vi;
     }
     void startCommunicationWithReader();
-    bool checkReaderInReadersCatalog(int);
-    Book* takeBookToTheReader(string&);
+    void mainActions();
     void getBookFromTheReader();
-    void getBookFromTheShelf();
     void putBooksOnTheShelf();
 };
 

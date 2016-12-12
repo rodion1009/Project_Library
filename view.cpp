@@ -1,9 +1,13 @@
 #include "view.h"
 
-int View::menu() {
+void View::hello() {
     cout << "Здравствуйте. Что Вы хотели?\n";
-    cout << "1. Взять книгу\n";
-    cout << "2. Вернуть книгу\n";
+}
+
+int View::menu() {
+    cout << "   1. Взять книгу\n";
+    cout << "   2. Вернуть книгу\n";
+    cout << "   3. Вывести список книг, которые я взял\n";
     cout << "Ваш выбор: ";
     int c;
     cin >> c;
@@ -11,14 +15,14 @@ int View::menu() {
 }
 
 void View::printListOfBooks(Library *l) {
-    for (int i = 0; i < l->amountOfBooks(); i++) {
+    for (int i = 0; i < l->getAmount(); i++) {
         printf("%s - \"%s\" \n", l->books[i]->getAutor().c_str(), l->books[i]->getTitle().c_str());
     }
 }
 
 int View::variantsOfBook() {
     int c;
-    cout << "Вывести список книг?\n" << "1. Да\n" << "0. Нет\n" << "Ваш выбор: ";
+    cout << "Вывести список книг?\n" << "   1. Да\n" << "   0. Нет\n" << "Ваш выбор: ";
     cin >> c;
     return c;
 }
@@ -45,4 +49,32 @@ void View::getReaderInfo(string &s, string &n) {
     cin >> s;
     cout << "Введите ваше имя: ";
     cin >> n;
+}
+
+void View::added() {
+    cout << "Новый читатель был добавлен в каталог\n";
+}
+
+int View::somethingElse() {
+    cout << "Что-нибудь ещё?\n";
+    cout << "   1. Да\n" << "   0. Нет\n";
+    cout << "Ваш выбор: ";
+    int answer;
+    cin >> answer;
+    return answer;
+}
+
+void View::noMoreBooks() {
+    cout << "Невозможно взять большее количество книг";
+}
+
+void View::noBooks() {
+    cout << "У вас нет книг\n";
+}
+void View::result(bool a) {
+    if (a) {
+        cout << "Книга получена\n";
+    } else {
+        cout << "Книга не найдена\n";
+    }
 }

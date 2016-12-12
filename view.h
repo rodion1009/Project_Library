@@ -15,6 +15,12 @@ public:
     void getReaderInfo(string&, string&);
     void printListOfBooks(Library*);
     int variantsOfBook();
+    void added();
+    int somethingElse();
+    void hello();
+    void noMoreBooks();
+    void noBooks();
+    void result(bool);
 };
 
 #endif /* View_h */

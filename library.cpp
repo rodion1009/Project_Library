@@ -2,7 +2,7 @@
 
 Library::Library() {
     ifstream f;
-    f.open("/Users/rodion/Documents/project_Library/Project_Library/books.txt");
+    f.open(path);
     
     string str, a, t;
     int k = 0;
@@ -46,12 +46,13 @@ Book* Library::findBook(string b) {
     }
 }
 
-int Library::amountOfBooks() {
-    return sizeof(books)/sizeof(Book*);
+int Library::getAmount() {
+    return amount;
 }
 
-//Library::~Library() {
-//    for (int i = 10; i < amount; i++) {
-//        books[i]->~Book();
-//    }
-//}
+Library::~Library() {
+    //tree.~RB_tree();
+    for (int i = 0; i < amount; i++) {
+        books[i]->~Book();
+    }
+}
